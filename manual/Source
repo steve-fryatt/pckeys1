@@ -1,0 +1,173 @@
+=============================================================================
+PC Keyboard - PC Keyboard Emulation                              Version 1.10
+
+(c) Stephen Fryatt, 1996                                      7 December 2002
+=============================================================================
+
+
+License
+-------
+
+  PC Keyboard is FREEWARE.  Copyright is held by the author, Stephen Fryatt,
+  1997.
+
+  PC Keyboard may be copied freely, so long as it remains unaltered with all
+  its files and documentation intact.
+
+  If you wish to distribute PC Keyboard, please contact me to get my
+  permission.  This is so that I can ensure that you have the latest version
+  available.  PC Keyboard may not be sold, although Public Domain libraries
+  may charge for the cost of discs.
+
+  No guarantee is made as to the suitability or stability of PC Keyboard for
+  any particular purpose.  No liability can be accepted by the author for any
+  loss or damage caused by the use of PC Keyboard.
+
+
+
+Introduction
+------------
+
+  PC Keyboard is a small module I wrote one evening when the difference
+  between Delete, Copy (End on a RiscPC), Home and Backspace on Acorns and
+  PCs finally drove me mad.  It simply alters the actions of these keys on
+  the Acorn so that they behave more like those on a PC.
+
+  Haven't people already done this? Yes - but only partially.  Acorn User
+  carried a module which used filters and so only worked where applications
+  handled their own input and not in writeable icons.  PC Keyboard uses the
+  InsV vector to monitor all keyboard input and so works everywhere on the
+  Desktop.  See the Limitations section below for the possible problems.
+
+
+
+Installing PC Keyboard
+----------------------
+
+  PC Keyboard can be run off a hard disc or floppy disc.  It is RISC OS 4
+  compatible and has been tested on RISC OS Select.  The module is 26/32 bit
+  neutral and should work on RISC OS 5.
+
+  To install PC Keyboard on a hard disc, copy the PCKeys module to a suitable
+  place on your disc.  If you want it to run on startup, PCKeys should be
+  placed in your boot sequence.  On a machine with the new boot structure
+  installed, this can be done by copying it into the Choices:Boot.Tasks
+  directory.  On older machines you will have to make your own arrangements,
+  although you will probably have built your own boot sequence anyway.
+
+
+
+Using PC Keyboard
+-----------------
+
+  Run the PCKeys module (double-click it from the desktop, or "*RMRun" it).
+  Better still, for regular use install it somewhere where it will load every
+  time your machine starts (such as Choices:Boot.Tasks).
+
+
+  Star Commands
+  -------------
+
+  One * command is provided by PC Keyboard , to turn the emulation on and
+  off.
+
+  *PCKeys [ON|OFF]
+
+    The "*PCKeys" command is provided to turn the emulation on and off.  It
+    takes an optional parameter "ON" or "OFF" to toggle the state of the
+    module.  On its own the command returns the module's current state.
+
+
+
+Possible Problems
+-----------------
+
+  PC Keyboard has one or two limitations.  The first is that not all
+  applications support the Copy key to delete forward.  If an application
+  doesn't support this, the Delete key will begin to do whatever the
+  application made Copy do (but Backspace will act as Delete).  The Backspace
+  key is replaced completely, so any applications looking for this will never
+  see it (Ctrl-H, usually returning the same code as Backspace, is not
+  affected).  This should not be a problem unless the application had some
+  illicit use for Backspace...
+
+  Finally, Delete and Copy change their actions when there is text selected.
+  A fix to stop PC Keyboard changing the key actions in this case is being
+  considered at the moment.
+
+
+
+Outside the Desktop
+-------------------
+
+  Outside of the Desktop, PC Keyboard lets all keypresses through regardless
+  of its current state.  This is because some command line applications get
+  upset if the action of certain keys is modified.  PC Keyboard uses
+  OS_CallEvery to check the state of the Desktop every second.
+
+
+
+Version History
+---------------
+
+  The following is a list of all the versions of PC Keyboard.
+
+
+  1.02 (6 March 1997)
+  -------------------
+
+  * Initial public release version.
+
+
+  1.03 (11 March 1999)
+  --------------------
+
+  * Corrected actions of Copy (End) and Home keys when emulating a PC
+    keyboard.
+  * Fixed a problem with Telnet windows and the Delete key.
+  * Corrected (non fatal) mistakes with the claiming and releasing of vectors
+    and OS_CallEvery.
+  * Moved changing data from module body into separate workspace.
+
+
+  1.04 (18 March 1999)
+  --------------------
+
+  * Fixed a bug introduced in 1.03, preventing Ctrl-H working as expected in
+    places such as Impression.
+
+
+  1.05 (22 March 1999)
+  --------------------
+
+  * No longer traps Shift-Copy, Ctrl-Copy and Shift-Ctrl-Copy.
+
+
+  1.08 (5 October 2001)
+  ---------------------
+
+  Not publicly released.
+
+  * Correctly turns on and off Keypress event using OS_Byte 13/14.
+
+
+  1.10 (7 December 2002)
+  ----------------------
+
+  Public Beta release.
+
+  * Module converted to new format and checked for 32-bit compatibility.
+
+
+
+Updates and Contacting Me
+-------------------------
+
+  If you have any comments about PC Keyboard, or would like to report any
+  bugs that you find, you can email me at the address below.
+
+  Updates to PC Keyboard and more programs for RISC OS computers can be found
+  on my website at http://www.stevefryatt.org.uk/software/
+
+  Stephen Fryatt
+  email: steve@stevefryatt.org.uk
