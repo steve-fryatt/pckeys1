@@ -29,6 +29,8 @@
 ;version$="1.10"
 ;save_as$="PCKeys"
 
+	GET	$Include/SWINames
+
 ; ---------------------------------------------------------------------------------------------------------------------
 ; Set up the Module Workspace
 
@@ -81,7 +83,7 @@ InitCode
 ; Bit 0 - PCKeys setting (On)
 ; Bit 1 - Desktop State  (On)
 
-	MOV	R0,#%11
+	MOV	R0,#2_11
 	STR	R0,[R2,#WS_OnOffFlag]
 
 ; Claim InsV to trap keypresses.  Pass workspace pointer in R12 (already in R2).
@@ -164,7 +166,7 @@ CheckDesktopState
 	MOV	R0,#3				; Check the current state of the
 	SWI	Wimp_ReadSysInfo		; Desktop and set the status flag
 	LDR	R1,[R12,#WS_OnOffFlag]		; appropriately.
-	BIC	R1,R1,#%10
+	BIC	R1,R1,#2_10
 	ORR	R1,R1,R0,LSL #1
 	STR	R1,[R12,#WS_OnOffFlag]
 
@@ -196,7 +198,7 @@ InsV
 ; Check that PC Keyboard Emulation is on and that we are in the Desktop.
 
 	LDR	R2,[R12,#WS_OnOffFlag]
-	TEQ	R2,#%11
+	TEQ	R2,#2_11
 	BNE	InsVExit
 
 ; Do the keypress substitution.  See page 1-892 in the PRMs for the codes...
@@ -262,7 +264,7 @@ PCKeysNoParam
 	ALIGN
 
 	LDR	R0,[R12,#WS_OnOffFlag]		; Load ON/OFF flag and display
-	AND	R0,R0,#%01			; remainder of message.
+	AND	R0,R0,#2_01			; remainder of message.
 	CMP	R0,#1
 	ADREQ	R0,TextOn
 	ADRNE	R0,TextOff
@@ -275,14 +277,14 @@ PCKeysOneParam
 	ADR	R1,TextOn			; Switch user flag on
 	BL	Compare
 	LDREQ	R2,[R12,#WS_OnOffFlag]
-	ORREQ	R2,R2,#%01
+	ORREQ	R2,R2,#2_01
 	STREQ	R2,[R12,#WS_OnOffFlag]
 	BEQ	PCKeysExit
 
 	ADR	R1,TextOff			; Switch user flag off
 	BL	Compare
 	LDREQ	R2,[R12,#WS_OnOffFlag]
-	BICEQ	R2,R2,#%01
+	BICEQ	R2,R2,#2_01
 	STREQ	R2,[R12,#WS_OnOffFlag]
 	BEQ	PCKeysExit
 
