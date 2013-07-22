@@ -233,7 +233,7 @@ TitleString
 
 
 HelpString
-	DCB	"PC Keyboard",9,$BuildVersion," (",$BuildDate,") ",169," Stephen Fryatt, 1996",0 ;-",$BuildDate:RIGHT:4,0
+	DCB	"PC Keyboard",9,$BuildVersion," (",$BuildDate,") ",169," Stephen Fryatt, 1996-",$BuildDate:RIGHT:4,0
 	ALIGN
 
 ; ==================================================================================================
