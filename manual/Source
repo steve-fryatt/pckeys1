@@ -22,15 +22,15 @@ PC Keyboard - PC Keyboard Emulation                              Version $$versi
 
 <chapter title="Licence" file="Licence">
 
-<cite>PC Keyboard</cite> is licensed under the EUPL, Version&nbsp;1.1 only (the "Licence"); you may not use this work except in compliance with the Licence.
+<cite>PC&nbsp;Keyboard</cite> is licensed under the EUPL, Version&nbsp;1.1 only (the &ldquo;Licence&rdquo;); you may not use this work except in compliance with the Licence.
 
 You may obtain a copy of the Licence at <link ref="#url http://joinup.ec.europa.eu/software/page/eupl">http://joinup.ec.europa.eu/software/page/eupl</link>
 
-Unless required by applicable law or agreed to in writing, software distributed under the Licence is distributed on an &quot;<strong>as is</strong>&quot; basis, <strong>without warranties or conditions of any kind</strong>, either express or implied.
+Unless required by applicable law or agreed to in writing, software distributed under the Licence is distributed on an &ldquo;<strong>as is</strong>&rdquo; basis, <strong>without warranties or conditions of any kind</strong>, either express or implied.
 
 See the Licence for the specific language governing permissions and limitations under the Licence.
 
-The source for <cite>PC Keyboard</cite> can be found alongside this binary download, at <link ref="#url http://www.stevefryatt.org.uk/software">http://www.stevefryatt.org.uk/software</link>
+The source for <cite>PC&nbsp;Keyboard</cite> can be found alongside this binary download, at <link ref="#url http://www.stevefryatt.org.uk/software">http://www.stevefryatt.org.uk/software</link>
 
 The necessary libraries and build tools can be found at <link ref="#url http://www.stevefryatt.org.uk/software/build">http://www.stevefryatt.org.uk/software/build</link>
 
@@ -43,9 +43,9 @@ The necessary libraries and build tools can be found at <link ref="#url http://w
 
 <chapter title="Introduction" file="introduction">
 
-<cite>PC Keyboard</cite> is a small module I wrote one evening when the difference between <key>delete</key>, <key>copy</key> (<key>end</key> on a RiscPC), <key>home</key> and <key>backspace</key> on Acorns and PCs finally drove me mad.  It simply alters the actions of these keys on the Acorn so that they behave more like those on a PC.
+<cite>PC&nbsp;Keyboard</cite> is a small module I wrote one evening when the difference between <key>delete</key>, <key>copy</key> (<key>end</key> on a RiscPC), <key>home</key> and <key>backspace</key> on Acorns and PCs finally drove me mad.  It simply alters the actions of these keys on the Acorn so that they behave more like those on a PC.
 
-Haven't people already done this?  Yes &ndash; but only partially.  <cite>Acorn User</cite> carried a module which used filters and so only worked where applications handled their own input and not in writeable icons.  <cite>PC Keyboard</cite> uses the InsV vector to monitor all keyboard input and so works everywhere on the Desktop. See the <link ref="Limits">Limitations</link> section below for the possible problems.
+Haven't people already done this?  Yes &ndash; but only partially.  <cite>Acorn User</cite> carried a module which used filters and so only worked where applications handled their own input and not in writeable icons.  <cite>PC&nbsp;Keyboard</cite> uses the InsV vector to monitor all keyboard input and so works everywhere on the Desktop. See the <link ref="Limits">Limitations</link> section below for the possible problems.
 
 </chapter>
 
@@ -57,9 +57,9 @@ Haven't people already done this?  Yes &ndash; but only partially.  <cite>Acorn 
 
 <chapter title="Installing PC Keyboard" file="Install">
 
-<cite>PC Keyboard</cite> can be run off a hard disc or floppy disc.  It is RISC OS 4 compatible and has been tested on RISC OS Select.  The module is 26/32 bit neutral and should work on RISC OS 5.
+<cite>PC&nbsp;Keyboard</cite> can be run off a hard disc or floppy disc.  It is RISC&nbsp;OS&nbsp;4 compatible and has been tested on RISC&nbsp;OS Select.  The module is 26/32 bit neutral and should work on RISC&nbsp;OS&nbsp;5.
 
-To install <cite>PC Keyboard</cite> on a hard disc, copy the <file>PCKeys</file> module to a suitable place on your disc.  If you want it to run on startup, <file>PCKeys</file> should be placed in your boot sequence.  On a machine with the new boot structure installed, this can be done by copying it into the <file>Choices:Boot.Tasks</file> directory.  On older machines you will have to make your own arrangements, although you will probably have built your own boot sequence anyway.
+To install <cite>PC&nbsp;Keyboard</cite> on a hard disc, copy the <file>PCKeys</file> module to a suitable place on your disc.  If you want it to run on startup, <file>PCKeys</file> should be placed in your boot sequence.  On a machine with the new boot structure installed, this can be done by copying it into the <file>Choices:Boot.Tasks</file> directory.  On older machines you will have to make your own arrangements, although you will probably have built your own boot sequence anyway.
 
 </chapter>
 
@@ -75,7 +75,7 @@ Run the <file>PCKeys</file> module (double-click it from the desktop, or <comman
 
 <subhead title="Star Commands">
 
-One * command is provided by <cite>PC Keyboard </cite>, to turn the emulation on and off.
+One * command is provided by <cite>PC&nbsp;Keyboard</cite>, to turn the emulation on and off.
 
 <comdef target="*PCKeys" params="[ON|OFF]">
 The <command>*PCKeys</command> command is provided to turn the emulation on and off.  It takes an optional parameter <command>ON</command> or <command>OFF</command> to toggle the state of the module.  On its own the command returns the module's current state.
@@ -89,9 +89,9 @@ The <command>*PCKeys</command> command is provided to turn the emulation on and 
 
 <chapter title="Possible Problems" file="Limits">
 
-<cite>PC Keyboard</cite> has one or two limitations.  The first is that not all applications support the <key>copy</key> key to delete forward.  If an application doesn't support this, the <key>delete</key> key will begin to do whatever the application made <key>copy</key> do (but <key>backspace</key> will act as <key>delete</key>).  The <key>backspace</key> key is replaced completely, so any applications looking for this will never see it (<key>ctrl-H</key>, usually returning the same code as <key>backspace</key>, is not affected).  This should not be a problem unless the application had some illicit use for <key>backspace</key>...
+<cite>PC&nbsp;Keyboard</cite> has one or two limitations.  The first is that not all applications support the <key>copy</key> key to delete forward.  If an application doesn't support this, the <key>delete</key> key will begin to do whatever the application made <key>copy</key> do (but <key>backspace</key> will act as <key>delete</key>).  The <key>backspace</key> key is replaced completely, so any applications looking for this will never see it (<key>ctrl-H</key>, usually returning the same code as <key>backspace</key>, is not affected).  This should not be a problem unless the application had some illicit use for <key>backspace</key>...
 
-Finally, <key>delete</key> and <key>copy</key> change their actions when there is text selected.  A fix to stop <cite>PC Keyboard</cite> changing the key actions in this case is being considered at the moment.
+Finally, <key>delete</key> and <key>copy</key> change their actions when there is text selected.  A fix to stop <cite>PC&nbsp;Keyboard</cite> changing the key actions in this case is being considered at the moment.
 
 </chapter>
 
@@ -102,7 +102,7 @@ Finally, <key>delete</key> and <key>copy</key> change their actions when there i
 
 <chapter title="Outside the Desktop" file="Outside">
 
-Outside of the Desktop, <cite>PC Keyboard</cite> lets all keypresses through regardless of its current state.  This is because some command line applications get upset if the action of certain keys is modified.  <cite>PC Keyboard</cite> uses OS_CallEvery to check the state of the Desktop every second.
+Outside of the Desktop, <cite>PC&nbsp;Keyboard</cite> lets all keypresses through regardless of its current state.  This is because some command line applications get upset if the action of certain keys is modified.  <cite>PC&nbsp;Keyboard</cite> uses <code>OS_CallEvery</code> to check the state of the Desktop every second.
 
 </chapter>
 
@@ -113,7 +113,7 @@ Outside of the Desktop, <cite>PC Keyboard</cite> lets all keypresses through reg
 
 <chapter title="Version History" file="History">
 
-The following is a list of all the versions of <cite>PC Keyboard</cite>.
+The following is a list of all the versions of <cite>PC&nbsp;Keyboard</cite>.
 
 
 <subhead title="1.02 (6 March 1997)">
@@ -126,7 +126,7 @@ The following is a list of all the versions of <cite>PC Keyboard</cite>.
 <subhead title="1.03 (11 March 1999)">
 
 <list>
-<li>Corrected actions of <key>copy</key> (<key>end</key>) and <key>home</key> keys when emulating a PC keyboard.
+<li>Corrected actions of <key>copy</key> (<key>end</key>) and <key>home</key> keys when emulating a PC&nbsp;keyboard.
 <li>Fixed a problem with Telnet windows and the <key>delete</key> key.
 <li>Corrected (non fatal) mistakes with the claiming and releasing of vectors and OS_CallEvery.
 <li>Moved changing data from module body into separate workspace.
@@ -152,7 +152,7 @@ The following is a list of all the versions of <cite>PC Keyboard</cite>.
 Not publicly released.
 
 <list>
-<li>Correctly turns on and off Keypress event using OS_Byte 13/14.
+<li>Correctly turns on and off Keypress event using <code>OS_Byte&nbsp;13/14</code>.
 </list>
 
 
