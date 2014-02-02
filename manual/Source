@@ -12,6 +12,7 @@ PC Keyboard - PC Keyboard Emulation                              Version $$versi
 
 (c) Stephen Fryatt, 1996-2013                  $$date$$
 =============================================================================
+
 </literal>
 
 
@@ -44,7 +45,7 @@ The necessary libraries and build tools can be found at <link ref="#url http://w
 
 <cite>PC Keyboard</cite> is a small module I wrote one evening when the difference between <key>delete</key>, <key>copy</key> (<key>end</key> on a RiscPC), <key>home</key> and <key>backspace</key> on Acorns and PCs finally drove me mad.  It simply alters the actions of these keys on the Acorn so that they behave more like those on a PC.
 
-Haven't people already done this?  Yes - but only partially.  <cite>Acorn User</cite> carried a module which used filters and so only worked where applications handled their own input and not in writeable icons.  <cite>PC Keyboard</cite> uses the InsV vector to monitor all keyboard input and so works everywhere on the Desktop. See the <link ref="Limits">Limitations</link> section below for the possible problems.
+Haven't people already done this?  Yes &ndash; but only partially.  <cite>Acorn User</cite> carried a module which used filters and so only worked where applications handled their own input and not in writeable icons.  <cite>PC Keyboard</cite> uses the InsV vector to monitor all keyboard input and so works everywhere on the Desktop. See the <link ref="Limits">Limitations</link> section below for the possible problems.
 
 </chapter>
 
@@ -177,7 +178,6 @@ Public Beta release.
 
 
 <literal mode="Text">
-
 
 Updates and Contacting Me
 -------------------------
