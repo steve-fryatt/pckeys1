@@ -28,7 +28,7 @@ ARCHIVE := pckeys
 
 MODULE := PCKeys,ffa
 
-OBJS ?= PCKeys.o
+OBJS := PCKeys.o
 
 include $(SFTOOLS_MAKE)/Module
 
