@@ -29,7 +29,7 @@
 ;version$="1.10"
 ;save_as$="PCKeys"
 
-	GET	$Include/SWINames
+	GET	$Include/AsmSWINames
 
 ; ---------------------------------------------------------------------------------------------------------------------
 ; Set up the Module Workspace
